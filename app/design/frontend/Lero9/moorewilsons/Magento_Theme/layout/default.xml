@@ -14,5 +14,11 @@
                 <argument name="logo_img_height" xsi:type="number">113</argument>
             </arguments>
         </referenceBlock>
+        <referenceContainer name="header-wrapper">
+            <container name="header-cart-account" as="header-cart-account" label="Header Card and Account Container" htmlTag="div" htmlClass="header-cart-account" />
+        </referenceContainer>
+        <move element="top.search" destination="header-wrapper" after="logo" />
+        <move element="header.panel" destination="header-cart-account" />
+        <move element="minicart" destination="header-cart-account" after="header.panel" />
     </body>
 </page>
