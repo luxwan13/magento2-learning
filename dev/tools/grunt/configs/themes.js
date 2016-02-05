@@ -54,7 +54,7 @@ module.exports = {
     moorewilsons: {
         area: 'frontend',
         name: 'Lero9/moorewilsons',
-        locale: 'en_US',
+        locale: 'en_NZ',
         files: [
             'css/styles-m',
             'css/styles-l'
