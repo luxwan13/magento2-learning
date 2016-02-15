@@ -20,5 +20,6 @@
         <move element="top.search" destination="header-wrapper" after="logo" />
         <move element="header.panel" destination="header-cart-account" />
         <move element="minicart" destination="header-cart-account" after="header.panel" />
+        <referenceContainer name="header.panel" htmlClass="header-account-links-wrapper" />
     </body>
 </page>
