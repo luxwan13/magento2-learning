@@ -20,6 +20,8 @@
         <move element="top.search" destination="header-wrapper" after="logo" />
         <move element="header.panel" destination="header-cart-account" />
         <move element="minicart" destination="header-cart-account" after="header.panel" />
-        <referenceContainer name="header.panel" htmlClass="header-account-links-wrapper" />
+        <referenceContainer name="header.panel" htmlClass="header-account-links-wrapper">
+            <block class="Magento\Framework\View\Element\Template" name="header-account-links-label" template="Magento_Theme::header_account_links_label.phtml" after="skip_to_content"/>
+        </referenceContainer>
     </body>
 </page>

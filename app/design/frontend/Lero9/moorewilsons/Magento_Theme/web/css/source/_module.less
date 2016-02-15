@@ -108,6 +108,29 @@ body {
     }
 }
 
+div.header-account-links-wrapper{
+  display: inline-block;
+  position: relative;
+  &:after{
+    clear:both;
+    content: '';
+    display: table;
+  }
+}
+
+a#header-account-links-label{
+  &:before{
+      background-position: -8px -14px;
+      background-image: url(../images/icon_sprite.png);
+      background-repeat: no-repeat;
+      width: 40px;
+      height: 40px;
+      font-size:0!important;
+      display:block;
+      content:"";
+  }
+}
+
 //
 //  Global notice
 //--------------------------------------
