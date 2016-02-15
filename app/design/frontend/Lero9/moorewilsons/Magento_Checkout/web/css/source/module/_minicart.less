@@ -141,6 +141,7 @@
               width: 40px;
               height: 40px;
               font-size:0!important;
+              display:block;
             }
             &.close {
                 .lib-button-icon(
@@ -159,7 +160,8 @@
             &.showcart {
                 white-space: nowrap;
                 .text {
-                    &:extend(.abs-visually-hidden all);
+                    display: block;
+                    color:#ffffff;
                 }
                 .counter.qty {
                     .lib-css(background, @active__color);
