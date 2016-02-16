@@ -23,5 +23,10 @@
         <referenceContainer name="header.panel" htmlClass="header-account-links-wrapper">
             <block class="Magento\Framework\View\Element\Template" name="header-account-links-label" template="Magento_Theme::header_account_links_label.phtml" after="skip_to_content"/>
         </referenceContainer>
+        <referenceBlock name="top.links">
+            <arguments>
+                <argument name="template" xsi:type="string">Magento_Theme::top_links.phtml</argument>
+            </arguments>
+        </referenceBlock>
     </body>
 </page>

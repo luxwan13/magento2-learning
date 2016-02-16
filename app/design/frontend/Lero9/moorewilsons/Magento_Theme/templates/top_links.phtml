@@ -1,0 +1,16 @@
+<?php
+if ($block->getLinks()) {
+?>
+<div>
+    <ul id='top-links' <?php echo ($block->hasCssClass() ? ' class="' . $block->escapeHtml(
+                $block->getCssClass()
+            ) . '"' : '');?> >
+<?php
+    foreach ($block->getLinks() as $link) {
+        echo $block->renderLink($link);
+    }
+?>
+    </ul>
+</div>
+<?php
+}
