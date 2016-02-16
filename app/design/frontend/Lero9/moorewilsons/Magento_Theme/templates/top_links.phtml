@@ -1,7 +1,15 @@
 <?php
 if ($block->getLinks()) {
 ?>
-<div>
+<div id='top-links-container' data-mage-init='{"dropdownDialog":{
+                "appendTo":"div.header-account-links-wrapper",
+                "triggerTarget":"a#header-account-links-label",
+                "timeout": "2000",
+                "closeOnMouseLeave": false,
+                "closeOnEscape": true,
+                "triggerClass":"active",
+                "parentClass":"active",
+                "buttons":[]}}'>
     <ul id='top-links' <?php echo ($block->hasCssClass() ? ' class="' . $block->escapeHtml(
                 $block->getCssClass()
             ) . '"' : '');?> >

@@ -116,11 +116,13 @@ div.header-account-links-wrapper{
     content: '';
     display: table;
   }
-}
-
-a#header-account-links-label{
-  &:before{
-      background-position: -8px -14px;
+  a#header-account-links-label{
+    cursor: pointer;
+    display: inline-block;
+    text-decoration: none;
+    color:#ffffff;
+    &:before{
+      background-position: -8px -34px;
       background-image: url(../images/icon_sprite.png);
       background-repeat: no-repeat;
       width: 40px;
@@ -128,6 +130,20 @@ a#header-account-links-label{
       font-size:0!important;
       display:block;
       content:"";
+    }
+  }
+  div#top-links-container{
+    right: -15px;
+    width: 390px;
+    position: absolute;
+    top: 100%;
+    background: #ffffff;
+    border: 1px solid #bbbbbb;
+    z-index: 100;
+    margin: 0;
+    padding: 25px 20px;
+    margin-top: 4px;
+    min-width: 100%;
   }
 }
 
