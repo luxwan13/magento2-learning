@@ -1,5 +1,7 @@
 <?php
-if ($block->getLinks()) {
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$customerSession = $objectManager->get( 'Magento\Customer\Model\Session' );
+if ( $block->getLinks() && $customerSession->isLoggedIn() ) {
 ?>
 <div id='top-links-container' data-mage-init='{"dropdownDialog":{
                 "appendTo":"div.header-account-links-wrapper",
