@@ -20,8 +20,13 @@
 <nav class="navigation" role="navigation">
     <ul data-mage-init='{"menu":{"responsive":true, "expanded":true, "position":{"my":"left top","at":"left bottom"}}}'>
         <li class="level0 nav-0">
-            <a href="<?php echo $this->getUrl('online') ?>" class="level-top"><span><span id="online-cms-link"><?php echo __('moorewilsons')?></span><?php echo __('.online') ?></span></a>
+            <a href="<?php echo $block->getUrl('online') ?>" class="level-top"><span><span id="online-cms-link"><?php echo __('moorewilsons')?></span><?php echo __('.online') ?></span></a>
         </li>
         <?php /* @escapeNotVerified */ echo $_menu; ?>
+    </ul>
+    <ul class="nav-secondary">
+        <li class="level0"><a href="<?php echo $block->getUrl('locations') ?>" class="location-link"><?php echo __('Locations &amp; Hours') ?></a></li>
+        <li class="level0"><a href="<?php echo $block->getUrl('about') ?>" class="about-link"><?php echo __('About Us') ?></a></li>
+        <li class="level0" ><a href="<?php echo $block->getUrl('content/whats-on/') ?>" class="events-link"><?php echo __('Events') ?></a></li>
     </ul>
 </nav>
