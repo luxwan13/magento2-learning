@@ -51,3 +51,4 @@ atlassian*
 
 .DS_Store
 /content/wp-config.php
+/content/wp-content/uploads/
