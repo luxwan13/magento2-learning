@@ -50,3 +50,4 @@ atlassian*
 !/vendor/.htaccess
 
 .DS_Store
+/content/wp-config.php
