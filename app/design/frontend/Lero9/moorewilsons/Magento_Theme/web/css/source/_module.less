@@ -68,7 +68,6 @@ body {
 
 .logo {
     .lib-span(2);
-    position: relative;
     z-index: 5;
     float: left;
     max-width: 50%;
@@ -125,6 +124,7 @@ div.header-account-links-wrapper{
     width:120px;
     font-size:10px;
     text-transform: uppercase;
+    padding-top:25px;
     &:before{
       background-position: -8px -34px;
       background-image: url(../images/icon_sprite.png);
@@ -327,6 +327,7 @@ div.header-account-links-wrapper{
             }
         }
         &.content {
+            padding:0;
             &:extend(.abs-add-clearfix-desktop all);
         }
     }
@@ -362,9 +363,13 @@ div.header-account-links-wrapper{
 
     .logo {
         width:261px;
-        margin: -8px auto 25px -19px;
+        margin: 0 0 0 -19px;
+        width:400px;
+        height:110px;
+        padding-top:22px;
         img {
             max-height: inherit;
+            width:261px;
         }
     }
 
