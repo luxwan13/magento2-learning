@@ -78,7 +78,7 @@ class Tab extends \Magento\Framework\Model\AbstractModel implements TabInterface
      */
     public function getId()
     {
-        return $this->getData(self::POST_ID);
+        return $this->getData(self::Tab_ID);
     }
 
     /**
@@ -159,7 +159,7 @@ class Tab extends \Magento\Framework\Model\AbstractModel implements TabInterface
      */
     public function setId($id)
     {
-        return $this->setData(self::POST_ID, $id);
+        return $this->setData(self::Tab_ID, $id);
     }
 
     /**

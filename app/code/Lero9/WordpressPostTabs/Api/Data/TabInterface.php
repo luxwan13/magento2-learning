@@ -13,7 +13,7 @@ interface TabInterface
     /**
      * Constants for keys of data array. Identical to the name of the getter in snake case
      */
-    const Tab_ID        = 'post_id';
+    const Tab_ID        = 'tab_id';
     const WP_URL        = 'wp_url';
     const LABEL         = 'label';
     const WP_CAT_ID     = 'wp_cat_id';
