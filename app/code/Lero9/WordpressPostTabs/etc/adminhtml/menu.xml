@@ -2,6 +2,6 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
     <menu>
         <add id="Lero9_WordpressPostTabs::wordpress" title="Wordpress" module="Lero9_WordpressPostTabs" sortOrder="50" parent="Magento_Backend::content" resource="Lero9_WordpressPostTabs::wordpress" />
-        <add id="Lero9_WordpressPostTabs::tabs" title="Post Tabs" module="Lero9_WordpressPostTabs" sortOrder="0" parent="Lero9_WordpressPostTabs::wordpress" action="wordpress/tabs/" resource="Lero9_WordpressPostTabs::tabs"/>
+        <add id="Lero9_WordpressPostTabs::tabs" title="Post Tabs" module="Lero9_WordpressPostTabs" sortOrder="0" parent="Lero9_WordpressPostTabs::wordpress" action="wordpress/tab/" resource="Lero9_WordpressPostTabs::tabs"/>
     </menu>
 </config>
