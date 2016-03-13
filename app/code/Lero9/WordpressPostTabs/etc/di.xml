@@ -15,12 +15,12 @@
             <argument name="filterPool" xsi:type="object" shared="false">TabGirdFilterPool</argument>
         </arguments>
     </virtualType>
-    <type name="Lero9\WordpressPostTabs\Model\ResourceModel\Tab\Grid\Collection">
+    <virtualType name="Lero9\WordpressPostTabs\Model\ResourceModel\Tab\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
         <arguments>
             <argument name="mainTable" xsi:type="string">lero9_wordpress_post_tab</argument>
             <argument name="resourceModel" xsi:type="string">Lero9\WordpressPostTabs\Model\ResourceModel\Tab</argument>
         </arguments>
-    </type>
+    </virtualType>
     <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
         <arguments>
             <argument name="collections" xsi:type="array">

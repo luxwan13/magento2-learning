@@ -22,10 +22,12 @@ class Tab extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
     public function __construct(
         \Magento\Framework\Model\ResourceModel\Db\Context $context,
         \Magento\Framework\Stdlib\DateTime\DateTime $date,
+        \Magento\Framework\Url\Validator $urlValidator,
         $resourcePrefix = null
     ) {
         parent::__construct($context, $resourcePrefix);
         $this->_date = $date;
+        $this->_urlValidator = $urlValidator;
     }
 
     /**
@@ -47,9 +49,9 @@ class Tab extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
      * @return $this
      * @throws \Magento\Framework\Exception\LocalizedException
      */
-    protected function _beforeSave(\Magento\Framework\Model\AbstractModel $object, \Magento\Framework\Url\Validator $validator)
+    protected function _beforeSave(\Magento\Framework\Model\AbstractModel $object)
     {
-        if ( ! $this->_isValidUrl($object, $validator)) { // check if the submitted Wordpress website url is valid
+        if ( ! $this->_isValidUrl( $object, $this->_urlValidator ) ) { // check if the submitted Wordpress website url is valid
             throw new \Magento\Framework\Exception\LocalizedException(
                 __('This is not a valid website url.')
             );
