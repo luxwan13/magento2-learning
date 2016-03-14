@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2016 Lero9. All rights reserved.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <block class="Lero9\WordpressPostTabs\Block\Adminhtml\Tab\Edit" name="wordpress_post_tab_edit"/>
+        </referenceContainer>
+        <!--<referenceContainer name="left">
+            <block class="Magento\Cms\Block\Adminhtml\Page\Edit\Tabs" name="cms_page_edit_tabs">
+                <block class="Magento\Cms\Block\Adminhtml\Page\Edit\Tab\Main" name="cms_page_edit_tab_main"/>
+                <block class="Magento\Cms\Block\Adminhtml\Page\Edit\Tab\Content" name="cms_page_edit_tab_content"/>
+                <block class="Magento\Cms\Block\Adminhtml\Page\Edit\Tab\Design" name="cms_page_edit_tab_design"/>
+                <block class="Magento\Cms\Block\Adminhtml\Page\Edit\Tab\Meta" name="cms_page_edit_tab_meta"/>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">main_section</argument>
+                    <argument name="block" xsi:type="string">cms_page_edit_tab_main</argument>
+                </action>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">content_section</argument>
+                    <argument name="block" xsi:type="string">cms_page_edit_tab_content</argument>
+                </action>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">design_section</argument>
+                    <argument name="block" xsi:type="string">cms_page_edit_tab_design</argument>
+                </action>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">meta_section</argument>
+                    <argument name="block" xsi:type="string">cms_page_edit_tab_meta</argument>
+                </action>
+            </block>
+        </referenceContainer>-->
+    </body>
+</page>
