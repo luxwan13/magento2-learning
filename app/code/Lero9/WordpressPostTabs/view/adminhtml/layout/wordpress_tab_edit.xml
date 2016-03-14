@@ -9,29 +9,19 @@
         <referenceContainer name="content">
             <block class="Lero9\WordpressPostTabs\Block\Adminhtml\Tab\Edit" name="wordpress_post_tab_edit"/>
         </referenceContainer>
-        <!--<referenceContainer name="left">
-            <block class="Magento\Cms\Block\Adminhtml\Page\Edit\Tabs" name="cms_page_edit_tabs">
-                <block class="Magento\Cms\Block\Adminhtml\Page\Edit\Tab\Main" name="cms_page_edit_tab_main"/>
-                <block class="Magento\Cms\Block\Adminhtml\Page\Edit\Tab\Content" name="cms_page_edit_tab_content"/>
-                <block class="Magento\Cms\Block\Adminhtml\Page\Edit\Tab\Design" name="cms_page_edit_tab_design"/>
-                <block class="Magento\Cms\Block\Adminhtml\Page\Edit\Tab\Meta" name="cms_page_edit_tab_meta"/>
+        <referenceContainer name="left">
+            <block class="Lero9\WordpressPostTabs\Block\Adminhtml\Tab\Edit\Tabs" name="wordpress_post_tab_edit_tabs">
+                <block class="Lero9\WordpressPostTabs\Block\Adminhtml\Tab\Edit\Tab\Main" name="wordpress_post_tab_edit_tab_main"/>
+                <block class="Lero9\WordpressPostTabs\Block\Adminhtml\Tab\Edit\Tab\Posts" name="wordpress_post_tab_edit_tab_posts"/>
                 <action method="addTab">
                     <argument name="name" xsi:type="string">main_section</argument>
-                    <argument name="block" xsi:type="string">cms_page_edit_tab_main</argument>
+                    <argument name="block" xsi:type="string">wordpress_post_tab_edit_tab_main</argument>
                 </action>
                 <action method="addTab">
-                    <argument name="name" xsi:type="string">content_section</argument>
-                    <argument name="block" xsi:type="string">cms_page_edit_tab_content</argument>
-                </action>
-                <action method="addTab">
-                    <argument name="name" xsi:type="string">design_section</argument>
-                    <argument name="block" xsi:type="string">cms_page_edit_tab_design</argument>
-                </action>
-                <action method="addTab">
-                    <argument name="name" xsi:type="string">meta_section</argument>
-                    <argument name="block" xsi:type="string">cms_page_edit_tab_meta</argument>
+                    <argument name="name" xsi:type="string">posts_section</argument>
+                    <argument name="block" xsi:type="string">wordpress_post_tab_edit_tab_posts</argument>
                 </action>
             </block>
-        </referenceContainer>-->
+        </referenceContainer>
     </body>
 </page>
