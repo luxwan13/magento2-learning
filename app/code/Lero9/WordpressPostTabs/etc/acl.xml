@@ -6,7 +6,8 @@
                 <resource id="Magento_Backend::content">
                     <resource id="Lero9_WordpressPostTabs::wordpress" title="Wordpress" sortOrder="10" >
                         <resource id="Lero9_WordpressPostTabs::tabs" title="Post Tabs" sortOrder="40">
-                            
+                            <resource id="Lero9_WordpressPostTabs::save" title="Save Tab" sortOrder="10" />
+                            <resource id="Lero9_WordpressPostTabs::tab_delete" title="Delete Tab" sortOrder="20" />
                         </resource>
                     </resource>
                 </resource>
