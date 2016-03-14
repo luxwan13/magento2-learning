@@ -47,7 +47,7 @@ class Tab extends \Magento\Framework\Model\AbstractModel implements TabInterface
      */
     protected function _construct()
     {
-        $this->_init('Lero9\WordpressPostTabs\ResourceModel\Tab');
+        $this->_init('Lero9\WordpressPostTabs\Model\ResourceModel\Tab');
     }
 
     /**

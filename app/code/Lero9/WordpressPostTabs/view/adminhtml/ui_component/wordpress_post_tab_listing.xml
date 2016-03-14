@@ -17,7 +17,7 @@
     </argument>
     <dataSource name="wordpress_post_tab_listing_data_source">
         <argument name="dataProvider" xsi:type="configurableObject">
-            <argument name="class" xsi:type="string">PostGridDataProvider</argument>
+            <argument name="class" xsi:type="string">TabGridDataProvider</argument>
             <argument name="name" xsi:type="string">wordpress_post_tab_listing_data_source</argument>
             <argument name="primaryFieldName" xsi:type="string">block_id</argument>
             <argument name="requestFieldName" xsi:type="string">id</argument>
@@ -94,10 +94,10 @@
                     </item>
                 </item>
             </argument>
-            <filterRange name="post_id">
+            <filterRange name="tab_id">
                 <argument name="data" xsi:type="array">
                     <item name="config" xsi:type="array">
-                        <item name="dataScope" xsi:type="string">post_id</item>
+                        <item name="dataScope" xsi:type="string">tab_id</item>
                         <item name="label" xsi:type="string" translate="true">ID</item>
                         <item name="childDefaults" xsi:type="array">
                             <item name="provider" xsi:type="string">wordpress_post_tab_listing.wordpress_post_tab_listing.listing_top.listing_filters</item>
@@ -225,7 +225,7 @@
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="selectProvider" xsi:type="string">wordpress_post_tab_listing.wordpress_post_tab_listing.blog_post_columns.ids</item>
-                    <item name="indexField" xsi:type="string">post_id</item>
+                    <item name="indexField" xsi:type="string">tab_id</item>
                 </item>
             </argument>
             <action name="delete">
@@ -233,7 +233,7 @@
                     <item name="config" xsi:type="array">
                         <item name="type" xsi:type="string">delete</item>
                         <item name="label" xsi:type="string" translate="true">Delete</item>
-                        <item name="url" xsi:type="url" path="blog/post/massDelete"/>
+                        <item name="url" xsi:type="url" path="wordpress/tab/massDelete"/>
                         <item name="confirm" xsi:type="array">
                             <item name="title" xsi:type="string" translate="true">Delete items</item>
                             <item name="message" xsi:type="string" translate="true">Are you sure you wan't to delete selected items?</item>
@@ -246,7 +246,7 @@
                     <item name="config" xsi:type="array">
                         <item name="type" xsi:type="string">disable</item>
                         <item name="label" xsi:type="string" translate="true">Disable</item>
-                        <item name="url" xsi:type="url" path="blog/post/massDisable"/>
+                        <item name="url" xsi:type="url" path="wordpress/tab/massDisable"/>
                     </item>
                 </argument>
             </action>
@@ -255,7 +255,7 @@
                     <item name="config" xsi:type="array">
                         <item name="type" xsi:type="string">enable</item>
                         <item name="label" xsi:type="string" translate="true">Enable</item>
-                        <item name="url" xsi:type="url" path="blog/post/massEnable"/>
+                        <item name="url" xsi:type="url" path="wordpress/tab/massEnable"/>
                     </item>
                 </argument>
             </action>
@@ -326,12 +326,12 @@
                 <item name="config" xsi:type="array">
                     <item name="resizeEnabled" xsi:type="boolean">false</item>
                     <item name="resizeDefaultWidth" xsi:type="string">55</item>
-                    <item name="indexField" xsi:type="string">post_id</item>
+                    <item name="indexField" xsi:type="string">tab_id</item>
                 </item>
             </argument>
         </selectionsColumn>
 
-        <column name="post_id">
+        <column name="tab_id">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="filter" xsi:type="string">textRange</item>
@@ -370,7 +370,7 @@
         </column>
         <column name="is_active">
             <argument name="data" xsi:type="array">
-                <item name="options" xsi:type="object">Ashsmith\Blog\Model\Post\Source\IsActive</item>
+                <item name="options" xsi:type="object">Lero9\WordpressPostTabs\Model\Tab\Source\IsActive</item>
                 <item name="config" xsi:type="array">
                     <item name="filter" xsi:type="string">select</item>
                     <item name="component" xsi:type="string">Magento_Ui/js/grid/columns/select</item>
@@ -405,7 +405,7 @@
                 <item name="config" xsi:type="array">
                     <item name="resizeEnabled" xsi:type="boolean">false</item>
                     <item name="resizeDefaultWidth" xsi:type="string">107</item>
-                    <item name="indexField" xsi:type="string">post_id</item>
+                    <item name="indexField" xsi:type="string">tab_id</item>
                 </item>
             </argument>
         </actionsColumn>
