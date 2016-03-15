@@ -37,6 +37,7 @@
         <argument name="data" xsi:type="array">
             <item name="config" xsi:type="array">
                 <item name="template" xsi:type="string">ui/grid/toolbar</item>
+                <item name="stickyTmpl" xsi:type="string">ui/grid/sticky/toolbar</item>
             </item>
         </argument>
         <bookmark name="bookmarks">
@@ -56,7 +57,7 @@
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="columnsData" xsi:type="array">
-                        <item name="provider" xsi:type="string">wordpress_post_tab_listing.wordpress_post_tab_listing.blog_post_columns</item>
+                        <item name="provider" xsi:type="string">wordpress_post_tab_listing.wordpress_post_tab_listing.wordpress_post_tab_listing_columns</item>
                     </item>
                     <item name="component" xsi:type="string">Magento_Ui/js/grid/controls/columns</item>
                     <item name="displayArea" xsi:type="string">dataGridActions</item>
@@ -80,151 +81,47 @@
         <filters name="listing_filters">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
-                    <item name="displayArea" xsi:type="string">dataGridFilters</item>
-                    <item name="dataScope" xsi:type="string">filters</item>
+                    <item name="columnsProvider" xsi:type="string">wordpress_post_tab_listing.wordpress_post_tab_listing.wordpress_post_tab_listing_columns</item>
                     <item name="storageConfig" xsi:type="array">
                         <item name="provider" xsi:type="string">wordpress_post_tab_listing.wordpress_post_tab_listing.listing_top.bookmarks</item>
                         <item name="namespace" xsi:type="string">current.filters</item>
                     </item>
+                    <item name="templates" xsi:type="array">
+                        <item name="filters" xsi:type="array">
+                            <item name="select" xsi:type="array">
+                                <item name="component" xsi:type="string">Magento_Ui/js/form/element/ui-select</item>
+                                <item name="template" xsi:type="string">ui/grid/filters/elements/ui-select</item>
+                            </item>
+                        </item>
+                    </item>
                     <item name="childDefaults" xsi:type="array">
                         <item name="provider" xsi:type="string">wordpress_post_tab_listing.wordpress_post_tab_listing.listing_top.listing_filters</item>
                         <item name="imports" xsi:type="array">
-                            <item name="visible" xsi:type="string">wordpress_post_tab_listing.wordpress_post_tab_listing.listing_top.bookmarks:current.columns.${ $.index }.visible</item>
+                            <item name="visible" xsi:type="string">wordpress_post_tab_listing.wordpress_post_tab_listing.listing_top.bookmarks:wordpress_post_tab_listing_columns.${ $.index }.visible</item>
                         </item>
                     </item>
                 </item>
+                <item name="observers" xsi:type="array">
+                    <item name="column" xsi:type="string">column</item>
+                </item>
             </argument>
-            <filterRange name="tab_id">
-                <argument name="data" xsi:type="array">
-                    <item name="config" xsi:type="array">
-                        <item name="dataScope" xsi:type="string">tab_id</item>
-                        <item name="label" xsi:type="string" translate="true">ID</item>
-                        <item name="childDefaults" xsi:type="array">
-                            <item name="provider" xsi:type="string">wordpress_post_tab_listing.wordpress_post_tab_listing.listing_top.listing_filters</item>
-                        </item>
-                    </item>
+            <filterSelect name="store_id">
+                <argument name="optionsProvider" xsi:type="configurableObject">
+                    <argument name="class" xsi:type="string">Magento\Cms\Ui\Component\Listing\Column\Cms\Options</argument>
                 </argument>
-                <filterInput name="from">
-                    <argument name="data" xsi:type="array">
-                        <item name="config" xsi:type="array">
-                            <item name="dataScope" xsi:type="string">from</item>
-                            <item name="label" xsi:type="string" translate="true">from</item>
-                            <item name="placeholder" xsi:type="string" translate="true">From</item>
-                        </item>
-                    </argument>
-                </filterInput>
-                <filterInput name="to">
-                    <argument name="data" xsi:type="array">
-                        <item name="config" xsi:type="array">
-                            <item name="dataScope" xsi:type="string">to</item>
-                            <item name="label" xsi:type="string" translate="true">to</item>
-                            <item name="placeholder" xsi:type="string" translate="true">To</item>
-                        </item>
-                    </argument>
-                </filterInput>
-            </filterRange>
-            <filterInput name="title">
                 <argument name="data" xsi:type="array">
                     <item name="config" xsi:type="array">
-                        <item name="dataScope" xsi:type="string">title</item>
-                        <item name="label" xsi:type="string" translate="true">Title</item>
-                    </item>
-                </argument>
-            </filterInput>
-            <filterInput name="url_key">
-                <argument name="data" xsi:type="array">
-                    <item name="config" xsi:type="array">
-                        <item name="dataScope" xsi:type="string">url_key</item>
-                        <item name="label" xsi:type="string" translate="true">URL Key</item>
-                    </item>
-                </argument>
-            </filterInput>
-            <filterSelect name="is_active">
-                <argument name="data" xsi:type="array">
-                    <item name="config" xsi:type="array">
-                        <item name="dataScope" xsi:type="string">is_active</item>
-                        <item name="label" xsi:type="string" translate="true">Status</item>
-                        <item name="caption" xsi:type="string" translate="true">Select...</item>
-                        <item name="options" xsi:type="array">
-                            <item name="disable" xsi:type="array">
-                                <item name="value" xsi:type="string">0</item>
-                                <item name="label" xsi:type="string" translate="true">Disabled</item>
-                            </item>
-                            <item name="enable" xsi:type="array">
-                                <item name="value" xsi:type="string">1</item>
-                                <item name="label" xsi:type="string" translate="true">Published</item>
-                            </item>
-                        </item>
+                        <item name="dataScope" xsi:type="string">store_id</item>
+                        <item name="label" xsi:type="string" translate="true">Store View</item>
+                        <item name="captionValue" xsi:type="string">0</item>
                     </item>
                 </argument>
             </filterSelect>
-            <filterRange name="creation_time" class="Magento\Ui\Component\Filters\Type\DateRange">
-                <argument name="data" xsi:type="array">
-                    <item name="config" xsi:type="array">
-                        <item name="dataScope" xsi:type="string">creation_time</item>
-                        <item name="label" xsi:type="string" translate="true">Created</item>
-                        <item name="childDefaults" xsi:type="array">
-                            <item name="provider" xsi:type="string">wordpress_post_tab_listing.wordpress_post_tab_listing.listing_top.listing_filters</item>
-                        </item>
-                    </item>
-                </argument>
-                <filterDate name="from">
-                    <argument name="data" xsi:type="array">
-                        <item name="config" xsi:type="array">
-                            <item name="dataScope" xsi:type="string">from</item>
-                            <item name="label" xsi:type="string" translate="true">from</item>
-                            <item name="placeholder" xsi:type="string" translate="true">From</item>
-                            <item name="dateFormat" xsi:type="string" translate="true">MM/dd/YYYY</item>
-                        </item>
-                    </argument>
-                </filterDate>
-                <filterDate name="to">
-                    <argument name="data" xsi:type="array">
-                        <item name="config" xsi:type="array">
-                            <item name="dataScope" xsi:type="string">to</item>
-                            <item name="label" xsi:type="string" translate="true">to</item>
-                            <item name="placeholder" xsi:type="string" translate="true">To</item>
-                            <item name="dateFormat" xsi:type="string" translate="true">MM/dd/YYYY</item>
-                        </item>
-                    </argument>
-                </filterDate>
-            </filterRange>
-            <filterRange name="update_time" class="Magento\Ui\Component\Filters\Type\DateRange">
-                <argument name="data" xsi:type="array">
-                    <item name="config" xsi:type="array">
-                        <item name="dataScope" xsi:type="string">update_time</item>
-                        <item name="label" xsi:type="string" translate="true">Modified</item>
-                        <item name="childDefaults" xsi:type="array">
-                            <item name="provider" xsi:type="string">wordpress_post_tab_listing.wordpress_post_tab_listing.listing_top.listing_filters</item>
-                        </item>
-                    </item>
-                </argument>
-                <filterDate name="from">
-                    <argument name="data" xsi:type="array">
-                        <item name="config" xsi:type="array">
-                            <item name="dataScope" xsi:type="string">from</item>
-                            <item name="label" xsi:type="string" translate="true">from</item>
-                            <item name="placeholder" xsi:type="string" translate="true">From</item>
-                            <item name="dateFormat" xsi:type="string" translate="true">MM/dd/YYYY</item>
-                        </item>
-                    </argument>
-                </filterDate>
-                <filterDate name="to">
-                    <argument name="data" xsi:type="array">
-                        <item name="config" xsi:type="array">
-                            <item name="dataScope" xsi:type="string">to</item>
-                            <item name="label" xsi:type="string" translate="true">to</item>
-                            <item name="placeholder" xsi:type="string" translate="true">To</item>
-                            <item name="dateFormat" xsi:type="string" translate="true">MM/dd/YYYY</item>
-                        </item>
-                    </argument>
-                </filterDate>
-            </filterRange>
         </filters>
         <massaction name="listing_massaction">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
-                    <item name="selectProvider" xsi:type="string">wordpress_post_tab_listing.wordpress_post_tab_listing.blog_post_columns.ids</item>
+                    <item name="selectProvider" xsi:type="string">wordpress_post_tab_listing.wordpress_post_tab_listing.wordpress_post_tab_listing_columns.ids</item>
                     <item name="indexField" xsi:type="string">tab_id</item>
                 </item>
             </argument>
@@ -259,6 +156,18 @@
                     </item>
                 </argument>
             </action>
+            <action name="edit">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="type" xsi:type="string">edit</item>
+                        <item name="label" xsi:type="string" translate="true">Edit</item>
+                        <item name="callback" xsi:type="array">
+                            <item name="provider" xsi:type="string">wordpress_post_tab_listing.wordpress_post_tab_listing.wordpress_post_tab_listing_columns_editor</item>
+                            <item name="target" xsi:type="string">editSelected</item>
+                        </item>
+                    </item>
+                </argument>
+            </action>
         </massaction>
         <paging name="listing_paging">
             <argument name="data" xsi:type="array">
@@ -267,7 +176,7 @@
                         <item name="provider" xsi:type="string">wordpress_post_tab_listing.wordpress_post_tab_listing.listing_top.bookmarks</item>
                         <item name="namespace" xsi:type="string">current.paging</item>
                     </item>
-                    <item name="selectProvider" xsi:type="string">wordpress_post_tab_listing.wordpress_post_tab_listing.blog_post_columns.ids</item>
+                    <item name="selectProvider" xsi:type="string">wordpress_post_tab_listing.wordpress_post_tab_listing.wordpress_post_tab_listing_columns.ids</item>
                     <item name="displayArea" xsi:type="string">bottom</item>
                     <item name="options" xsi:type="array">
                         <item name="20" xsi:type="array">
@@ -302,10 +211,19 @@
                     <item name="provider" xsi:type="string">wordpress_post_tab_listing.wordpress_post_tab_listing.listing_top.bookmarks</item>
                     <item name="namespace" xsi:type="string">current</item>
                 </item>
+                <item name="editorConfig" xsi:type="array">
+                    <item name="selectProvider" xsi:type="string">wordpress_post_tab_listing.wordpress_post_tab_listing.wordpress_post_tab_listing_columns.ids</item>
+                    <item name="enabled" xsi:type="boolean">true</item>
+                    <item name="indexField" xsi:type="string">tab_id</item>
+                    <item name="clientConfig" xsi:type="array">
+                        <item name="saveUrl" xsi:type="url" path="wordpress/tab/inlineEdit"/>
+                        <item name="validateBeforeSave" xsi:type="boolean">false</item>
+                    </item>
+                </item>
                 <item name="childDefaults" xsi:type="array">
                     <item name="fieldAction" xsi:type="array">
-                        <item name="provider" xsi:type="string">wordpress_post_tab_listing.wordpress_post_tab_listing.blog_post_columns.actions</item>
-                        <item name="target" xsi:type="string">applyAction</item>
+                        <item name="provider" xsi:type="string">wordpress_post_tab_listing.wordpress_post_tab_listing.wordpress_post_tab_listing_columns_editor</item>
+                        <item name="target" xsi:type="string">startEdit</item>
                         <item name="params" xsi:type="array">
                             <item name="0" xsi:type="string">edit</item>
                             <item name="1" xsi:type="string">${ $.$data.rowIndex }</item>
@@ -330,7 +248,6 @@
                 </item>
             </argument>
         </selectionsColumn>
-
         <column name="tab_id">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
@@ -340,7 +257,7 @@
                 </item>
             </argument>
         </column>
-        <column name="title">
+        <column name="label">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="filter" xsi:type="string">text</item>
@@ -350,21 +267,7 @@
                             <item name="required-entry" xsi:type="boolean">true</item>
                         </item>
                     </item>
-                    <item name="label" xsi:type="string" translate="true">Title</item>
-                </item>
-            </argument>
-        </column>
-        <column name="url_key">
-            <argument name="data" xsi:type="array">
-                <item name="config" xsi:type="array">
-                    <item name="filter" xsi:type="string">text</item>
-                    <item name="editor" xsi:type="array">
-                        <item name="editorType" xsi:type="string">text</item>
-                        <item name="validation" xsi:type="array">
-                            <item name="required-entry" xsi:type="boolean">true</item>
-                        </item>
-                    </item>
-                    <item name="label" xsi:type="string" translate="true">URL Key</item>
+                    <item name="label" xsi:type="string" translate="true">Label</item>
                 </item>
             </argument>
         </column>
@@ -400,7 +303,7 @@
                 </item>
             </argument>
         </column>
-        <actionsColumn name="actions" class="Ashsmith\Blog\Ui\Component\Listing\Column\PostActions">
+        <actionsColumn name="actions" class="Lero9\WordpressPostTabs\Ui\Component\Listing\Column\TabActions">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="resizeEnabled" xsi:type="boolean">false</item>
@@ -410,4 +313,13 @@
             </argument>
         </actionsColumn>
     </columns>
+    <container name="sticky">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_Ui/js/grid/sticky/sticky</item>
+                <item name="toolbarProvider" xsi:type="string">wordpress_post_tab_listing.wordpress_post_tab_listing.listing_top</item>
+                <item name="listingProvider" xsi:type="string">wordpress_post_tab_listing.wordpress_post_tab_listing.wordpress_post_tab_listing_columns</item>
+            </item>
+        </argument>
+    </container>
 </listing>
