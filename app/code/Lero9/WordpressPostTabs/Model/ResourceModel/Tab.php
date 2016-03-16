@@ -41,7 +41,7 @@ class Tab extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
     }
 
     /**
-     * Process page data before saving
+     * Process tab data before saving
      * Do server side validation for form input data
      *
      * @param \Magento\Framework\Model\AbstractModel $object
@@ -56,6 +56,13 @@ class Tab extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
                 __('This is not a valid website url.')
             );
         }
+
+        if ($object->isObjectNew() && !$object->hasCreationTime()) { // to do: use CURRENT_TIMESTAMP as default value in database for creation_time and update_time columns instead of manually setting values here
+            $object->setCreationTime($this->_date->gmtDate());
+        }
+
+        $object->setUpdateTime($this->_date->gmtDate());
+
         return parent::_beforeSave($object);
     }
 
