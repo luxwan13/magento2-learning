@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Copyright © 2016 Lero9. All rights reserved.
+ */
+-->
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+    <widget id="wordpress_post_tabs" class="Lero9\WordpressPostTabs\Block\Widget\Tabs">
+        <label translate="true">Wordpress Post Tabs</label>
+        <description translate="true">Show Wordpress posts in tabs</description>
+        <parameters>
+            <parameter name="tab_ids" xsi:type="block" visible="true" required="true" sort_order="10">
+                <label translate="true">Wordpress Post Tabs</label>
+                <block class="Lero9\WordpressPostTabs\Block\Adminhtml\Tab\Widget\Chooser">
+                    <data>
+                        <item name="button" xsi:type="array">
+                            <item name="open" xsi:type="string" translate="true">Select Tabs...</item>
+                        </item>
+                    </data>
+                </block>
+            </parameter>
+        </parameters>
+    </widget>
+</widgets>
