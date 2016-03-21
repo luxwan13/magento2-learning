@@ -29,6 +29,11 @@ class Chooser extends \Magento\Backend\Block\Widget\Grid\Extended
     protected $pageLayoutBuilder;
 
     /**
+     * @var string
+     */
+    protected $_template = 'Lero9_WordpressPostTabs::widget/grid/extended.phtml';
+
+    /**
      * @param \Magento\Backend\Block\Template\Context $context
      * @param \Magento\Backend\Helper\Data $backendHelper
      * @param \Lero9\WordpressPostTabs\Model\Tab $wordpressPostTab
