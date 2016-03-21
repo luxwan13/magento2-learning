@@ -150,6 +150,9 @@ class Chooser extends \Magento\Backend\Block\Widget\Grid\Extended
      */
     protected function _prepareColumns()
     {
+
+        $this->_prepareMassactionColumn();
+
         $this->addColumn(
             'chooser_id',
             [
@@ -191,5 +194,42 @@ class Chooser extends \Magento\Backend\Block\Widget\Grid\Extended
     public function getGridUrl()
     {
         return $this->getUrl('wordpress/tab_widget/chooser', ['_current' => true]);
+    }
+
+    /**
+     * Prepare grid massaction column
+     *
+     * @return $this
+     */
+    protected function _prepareMassactionColumn()
+    {
+        $columnId = 'massaction';
+        $massactionColumn = $this->getLayout()
+            ->createBlock('Magento\Backend\Block\Widget\Grid\Column')
+            ->setData(
+                [
+                    'index' => $this->getMassactionIdField(),
+                    'filter_index' => $this->getMassactionIdFilter(),
+                    'type' => 'massaction',
+                    'name' => 'tab_selection',
+                    'is_system' => true,
+                    'header_css_class' => 'col-select',
+                    'column_css_class' => 'col-select',
+                ]
+            );
+
+        if ($this->getNoFilterMassactionColumn()) {
+            $massactionColumn->setData('filter', false);
+        }
+
+        $massactionColumn->setSelected(true)->setGrid($this)->setId($columnId);
+
+        $this->getColumnSet()->insert(
+            $massactionColumn,
+            count($this->getColumnSet()->getColumns()) + 1,
+            false,
+            $columnId
+        );
+        return $this;
     }
 }
