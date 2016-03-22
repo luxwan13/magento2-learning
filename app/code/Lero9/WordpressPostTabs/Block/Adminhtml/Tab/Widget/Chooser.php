@@ -114,21 +114,14 @@ class Chooser extends \Magento\Backend\Block\Widget\Grid\Extended
      */
     public function getRowClickCallback()
     {
-        $chooserJsObject = $this->getId();
         $js = '
             function (grid, event) {
-                var trElement = Event.findElement(event, "tr");
-                var tabLabel = trElement.down("td").next().innerHTML;
-                var tabId = trElement.down("td").innerHTML.replace(/^\s+|\s+$/g,"");
-                ' .
-            $chooserJsObject .
-            '.setElementValue(tabId);
-                ' .
-            $chooserJsObject .
-            '.setElementLabel(tabLabel);
-                ' .
-            $chooserJsObject .
-            '.close();
+                var clickedElement = event.target;
+                var trElement = jQuery(clickedElement).parent("tr");
+                var checkbox = jQuery(trElement).find("input.admin__control-checkbox");
+                checkbox.prop( "checked", function( i, val ){
+                    return !val;
+                });
             }
         ';
         return $js;
