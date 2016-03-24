@@ -295,6 +295,15 @@ $numColumns = sizeof($block->getColumns());
     <?php endif; ?>
     //]]>
 
+    jQuery('button#insert-selected-tabs').click(function(){
+        <?php $chooserJsObject = $block->getId(); // see the WysiwygWidget.chooser object in /lib/web/mage/adminhtml/wysiwyg/widget.js?>
+        var tabIds = jQuery( 'input.admin__control-checkbox:checked').map(function() {
+            return this.value;
+        }).get().join();
+        <?php echo $chooserJsObject; ?>.setElementValue(tabIds);
+        <?php echo $chooserJsObject; ?>.close();
+    });
+
 });
 </script>
 <?php endif; ?>
