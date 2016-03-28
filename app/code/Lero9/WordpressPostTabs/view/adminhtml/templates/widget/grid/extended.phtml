@@ -188,7 +188,7 @@ $numColumns = sizeof($block->getColumns());
                                 ?>
                             <td <?php echo($_rowspan ? 'rowspan="' . $_rowspan . '" ' : '') ?>
                                 class="<?php /* @escapeNotVerified */ echo $_column->getCssProperty() ?>
-                                        <?php /* @escapeNotVerified */ echo $_column->getId() == 'massaction' ? 'data-grid-checkbox-cell': ''?>">
+                                        <?php /* @escapeNotVerified */ echo $_column->getId() == 'massaction' ? 'data-grid-checkbox-cell': ''?>" <?php echo $_column->getId() == 'massaction' ? 'data-tab-label="' . $_item->getLabel() . '"' : '';?>>
                                 <?php echo(($_html = $_column->getRowField($_item)) != '' ? $_html : '&nbsp;') ?>
                                 </td><?php
                                 if ($block->shouldRenderEmptyCell($_item, $_column)):
@@ -297,10 +297,13 @@ $numColumns = sizeof($block->getColumns());
 
     jQuery('button#insert-selected-tabs').click(function(){
         <?php $chooserJsObject = $block->getId(); // see the WysiwygWidget.chooser object in /lib/web/mage/adminhtml/wysiwyg/widget.js?>
-        var tabIds = jQuery( 'input.admin__control-checkbox:checked').map(function() {
-            return this.value;
+        var tabLabels = [];
+        var tabIds = jQuery( 'input.admin__control-checkbox:checked' ).map(function(index, element) {
+            tabLabels[index] = jQuery(element).parents('td.col-select').data('tab-label');
+            return element.value;
         }).get().join();
         <?php echo $chooserJsObject; ?>.setElementValue(tabIds);
+        <?php echo $chooserJsObject; ?>.setElementLabel(tabLabels.join('<br/>'));
         <?php echo $chooserJsObject; ?>.close();
     });
 
