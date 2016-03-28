@@ -96,11 +96,17 @@ class Chooser extends \Magento\Backend\Block\Widget\Grid\Extended
             $uniqId
         );
 
-        if ($element->getValue()) {
-            $tab = $this->_tabFactory->create()->load((int)$element->getValue());
-            if ($tab->getId()) {
-                $chooser->setLabel($this->escapeHtml($tab->getLabel()));
+        if ($values = $element->getValue()) {
+            $values = explode( ',', $values );
+            $labels = array();
+            foreach ( $values as $v ) {
+                $tab = $this->_tabFactory->create()->load((int)$v);
+                if ($tab->getId()) {
+                    $labels[] = $this->escapeHtml($tab->getLabel());
+                }
             }
+            $labels = implode( '<br/>', $labels );
+            $chooser->setLabel( $labels );
         }
 
         $element->setData('after_element_html', $chooser->toHtml());
